@@ -13,6 +13,8 @@ def printChessTemplate(chess_board, gameDisplay):
         #        pygame.draw.rect(gameDisplay, red, [x+40*j,y+40*i,20,20])
     
 
+
+
 def main():
     pygame.init()
 

@@ -1,42 +1,19 @@
-class color(object):
-    em=0
-    white=2
-    black=1
-class ChessMan(object):
-    IMG=None
-    def __init__(self,color):
-        self.color=color
-    def __repr__(self):
-        return self.IMG[self.color]
-class Pawn(ChessMan):
-        IMG=('♙','♟')
-        def get_moves(self,board,x,y):
-            moves=[]
-            retirn moves 
+class ChessMan:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.tag = '&'
 
-class King(ChessMan):
-    IMG=('♔','♚')
-class Rook(ChessMan):
-    IMG=('♖','♜')
-class Bishops(ChessMan):
-    IMG=('♗','♝')
-class Knigts (ChessMan):
-    IMG=('♘','♞')
-class Queen(ChessMan):
-    IMG=('♕','♛')
-class Board(object):
+class Board:
     def __init__(self):
-        self.board=[['.']*8 for i in range (8)]
-        for i in range (8):
-            self.board[1][i]=Pawn(1)
-        for i in range (8):
-            self.board[6][i]=Pawn(0)
-        self.board[0][4]=King(1)
+        self.board = [ ['.']*8 for i in range(8)]
 
-    def __repr__(self):
-        res= ''
-        for y in range (8):
-            res+=''.join(map(str,self.board[y]))+"\n"
-        return res
-     
-print(Board())
+    def print_b(self):
+        for i in self.board:
+            print(*i)
+
+    def enter_obj(self, chess_obj):
+        if type(chess_obj) == ChessMan:
+            print(self.board[chess_obj.x], '\n')
+            print(self.board[chess_obj.x][chess_obj.y], '\n')
+            self.board[chess_obj.x][chess_obj.y] = '&'
